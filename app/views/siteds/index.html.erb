@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SITEDS</title>
+</head>
+<body>
+	<%= form_tag({:controller => "siteds", :action => "index"}, :method => "get") do %>
+	<%= label_tag :nombres %>
+	<%= text_field_tag :nombres %>
+
+	<%= label_tag :a_paterno %>
+	<%= text_field_tag :a_paterno %>
+
+	<%= label_tag :a_materno %>
+	<%= text_field_tag :a_materno %>
+
+	<%= submit_tag "Consultar" %>
+<% end %>
+<br>
+<br>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Apellido Paterno</th>
+			<th>Nombres</th>
+			<th>Apellido Materno</th>
+			<th>Codigo Asegurado</th>
+			<th>Código Cliente</th>
+			<th>Estado</th>
+			<th>Tipo de producto</th>
+			<th>Fecha nacimiento</th>
+			<th>Sexo</th>
+			<th>Parentesco</th>
+			<th>Razon social</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% n = (@lista.arraysend.length - 1) %>
+		<% for i in(0..n) %>
+				<tr>
+					<th><%= i %></th>
+					<td><%= @lista.arraysend[i][0] %></td>
+					<td><%= @lista.arraysend[i][1] %></td>
+					<td><%= @lista.arraysend[i][2] %></td>
+					<td><%= @lista.arraysend[i][3] %></td>
+					<td><%= @lista.arraysend[i][4] %></td>
+					<td><%= @lista.arraysend[i][5] %></td>
+					<td><%= @lista.arraysend[i][6] %></td>
+					<td><%= @lista.arraysend[i][7] %></td>
+					<td><%= @lista.arraysend[i][8] %></td>
+					<td><%= @lista.arraysend[i][9] %></td>
+					<td><%= @lista.arraysend[i][10] %></td>
+				</tr>
+		<% end %>
+	</tbody>
+</table>
+</body>
+</html>
